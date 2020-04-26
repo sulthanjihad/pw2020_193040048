@@ -18,15 +18,17 @@ $m = query("SELECT * FROM mahasiswa WHERE id =$id");
 
 <body>
   <h3>Detail mahasiswa</h3>
-  <table cellpadding:"15" cellspacing:"10">
-    <ul>
-      <li><img src="img/<?= $m['gambar']; ?>" width="60"></li>
-      <li>NRP : <?= $m['nrp']; ?></li>
-      <li>Nama : <?= $m['nama']; ?></li>
-      <li>Email : <?= $m['email']; ?></li>
-      <li>jurusan : <?= $m['jurusan']; ?></li>
-    </ul>
-  </table>
+  <div class="container">
+    <table cellpadding:"15" cellspacing:"10">
+      <ul>
+        <li><img src="img/<?= $m['gambar']; ?>" width="60"></li>
+        <li>NRP : <?= $m['nrp']; ?></li>
+        <li>Nama : <?= $m['nama']; ?></li>
+        <li>Email : <?= $m['email']; ?></li>
+        <li>jurusan : <?= $m['jurusan']; ?></li>
+      </ul>
+    </table>
+  </div>
 </body>
 
 </html>

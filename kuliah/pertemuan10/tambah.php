@@ -32,46 +32,47 @@ if (isset($_POST['tambah'])) {
 
 <body>
   <h3>Form Tambah Data Mahasiswa</h3>
-  <form action="" method="POST">
-    <table cellspacing:"10" cellpadding:"10">
-      <ul>
-        <li>
-          <label>
-            Nama :
-            <input type="text" name="nama" autofocus required>
-          </label>
-        </li>
-        <li>
-          <label>
-            NRP :
-            <input type="text" name="nrp" required>
-          </label>
-        </li>
-        <li>
-          <label>
-            Email :
-            <input type="text" name="email" required>
-          </label>
-        </li>
-        <li>
-          <label>
-            Jurusan :
-            <input type="text" name="jurusan" required>
-          </label>
-        <li>
-          <label>
-            gambar
-            <input type="text" name="gambar" required>
-          </label>
-        </li>
-        </li>
-        <li>
-          <button type="submit" name="tambah">tambah data!</button>
-        </li>
-      </ul>
-    </table>
-  </form>
-
+  <div class="container">
+    <form action="" method="POST">
+      <table cellspacing:"10" cellpadding:"10">
+        <ul>
+          <li>
+            <label>
+              Nama :
+              <input type="text" name="nama" autofocus required>
+            </label>
+          </li>
+          <li>
+            <label>
+              NRP :
+              <input type="text" name="nrp" required>
+            </label>
+          </li>
+          <li>
+            <label>
+              Email :
+              <input type="text" name="email" required>
+            </label>
+          </li>
+          <li>
+            <label>
+              Jurusan :
+              <input type="text" name="jurusan" required>
+            </label>
+          <li>
+            <label>
+              gambar
+              <input type="text" name="gambar" required>
+            </label>
+          </li>
+          </li>
+          <li>
+            <button type="submit" name="tambah">tambah data!</button>
+          </li>
+        </ul>
+      </table>
+    </form>
+  </div>
 </body>
 
 </html>
