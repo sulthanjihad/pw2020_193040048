@@ -11,6 +11,7 @@ html {
 body {
   scroll-behavior: smooth;
   background-color: lightgoldenrodyellow;
+  background-image: url();
 }
 
 h1 {
@@ -43,6 +44,11 @@ h1 {
   position: relative;
 }
 
+.jumbotron .jumbotronadmin {
+  z-index: 1;
+  position: relative;
+}
+
 
 .jumbotron::after {
   content: '';
@@ -58,7 +64,7 @@ h1 {
   color: white;
   margin-top: 150px;
   font-weight: 200;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
   margin-bottom: 30px;
   font-size: 32px;
 }
@@ -70,6 +76,8 @@ h1 {
 /* isi */
 .container {
   text-align: center;
+
+
 }
 
 /* footer */
@@ -81,6 +89,21 @@ h1 {
   color: black;
   font-size: 18px;
 }
+
+
+
+/* Admin */
+.tabeladmin {
+  background-color: lemonchiffon;
+  text-align: center;
+  color: black;
+}
+
+
+
+/* Admin */
+
+
 
 /* for dekstop */
 @media (min-width: 992px) {

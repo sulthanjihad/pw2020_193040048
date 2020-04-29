@@ -54,20 +54,18 @@ if (isset($_GET['cari'])) {
         </div>
     </div>
 
-    <!--jika tidak ada hasil pencarian -->
-    <?php if (empty($buku)) : ?>
-        <tr>
-            <td colspan="7">
-                <h1>Data tidak ditemukan!!!</h1>
-            </td>
-        </tr>
-    <?php endif; ?>
-    <!-- pemberentian pengkondisian-->
 
     <div class="container">
         <form action="" method="get">
             <input type="text" name="keyword" size="40" placeholder="masukan keyword pencarian.." autocomplete="off" autofocus>
-            <button type="submit" name="cari" id="cari">cari!</button>
+            <button type="submit" class="btn btn-info" name="cari" id="cari">cari!</button>
+
+            <!--jika tidak ada hasil pencarian -->
+            <?php if (empty($buku)) : ?>
+                <h1>Data tidak ditemukan!!</h1>
+            <?php endif; ?>
+            <!-- pemberentian pengkondisian-->
+
         </form>
         <br><br>
 
