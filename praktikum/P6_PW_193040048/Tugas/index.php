@@ -54,32 +54,32 @@ if (isset($_GET['cari'])) {
         </div>
     </div>
 
+    <section class="isi">
+        <div class="container">
+            <form action="" method="get">
+                <input type="text" name="keyword" size="40" placeholder="masukan keyword pencarian.." autocomplete="off" autofocus>
+                <button type="submit" class="btn btn-info" name="cari" id="cari">cari!</button>
 
-    <div class="container">
-        <form action="" method="get">
-            <input type="text" name="keyword" size="40" placeholder="masukan keyword pencarian.." autocomplete="off" autofocus>
-            <button type="submit" class="btn btn-info" name="cari" id="cari">cari!</button>
+                <!--jika tidak ada hasil pencarian -->
+                <?php if (empty($buku)) : ?>
+                    <h1>Data tidak ditemukan!!</h1>
+                <?php endif; ?>
+                <!-- pemberentian pengkondisian-->
 
-            <!--jika tidak ada hasil pencarian -->
-            <?php if (empty($buku)) : ?>
-                <h1>Data tidak ditemukan!!</h1>
-            <?php endif; ?>
-            <!-- pemberentian pengkondisian-->
+            </form>
+            <br><br>
 
-        </form>
-        <br><br>
+            <?php foreach ($buku as $bk) : ?>
 
-        <?php foreach ($buku as $bk) : ?>
+                <div class="NamaBuku alert alert-primary mt-4 " role="alert">
+                    Data Buku yang ada di website kami <a href="php/detail.php?Id=<?= $bk['Id'] ?>" class="alert-link"><?= "$bk[Id]"; ?>.<?= "$bk[NamaBuku]"; ?></a> Lihat lebih detail.
+                </div>
 
-            <div class="NamaBuku alert alert-primary mt-4 " role="alert">
-                Data Buku yang ada di website kami <a href="php/detail.php?Id=<?= $bk['Id'] ?>" class="alert-link"><?= "$bk[Id]"; ?>.<?= "$bk[NamaBuku]"; ?></a> Lihat lebih detail.
-            </div>
-
-        <?php endforeach; ?>
-        <a href="php/admin.php" class="btn btn-primary tombol">Admin</a>
-        <a href="index.php" class="btn btn-primary tombol">Kembali</a>
-    </div>
-
+            <?php endforeach; ?>
+            <a href="php/admin.php" class="btn btn-primary tombol">Admin</a>
+            <a href="index.php" class="btn btn-primary tombol">Kembali</a>
+        </div>
+    </section>
 </body>
 <footer class=" text-dark bg-light footer">
     <div class="container">

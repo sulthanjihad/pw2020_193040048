@@ -1,22 +1,15 @@
-.container p {
-  text-transform: uppercase;
-
-}
-
 html {
   scroll-behavior: smooth;
 
 }
 
 body {
+
   scroll-behavior: smooth;
   background-color: lightgoldenrodyellow;
   background-image: url();
 }
 
-h1 {
-  text-align: center;
-}
 
 .navbar {
   position: relative;
@@ -74,10 +67,23 @@ h1 {
 }
 
 /* isi */
-.container {
+.isi .container {
   text-align: center;
+}
 
 
+.container p {
+  text-transform: uppercase;
+
+}
+
+.container table {
+  margin: auto;
+  text-align: center;
+}
+
+td {
+  padding: 20px;
 }
 
 /* footer */
@@ -99,10 +105,21 @@ h1 {
   color: black;
 }
 
-
-
 /* Admin */
 
+/* tambah */
+.tambah {
+  border-radius: 15%;
+  text-transform: uppercase;
+  background-image: url(../assets/img/bgtbl1.jpg);
+  float: right;
+}
+
+.tambahsisi {
+  text-align: center;
+}
+
+/* tambah */
 
 
 /* for dekstop */

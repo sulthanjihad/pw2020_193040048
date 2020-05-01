@@ -1,0 +1,28 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.body {
+  color: white;
+
+}
+
+.jumbotron {}
+
+.jumbotron h1 {
+  font-size: 100px;
+  text-shadow: 10px 10px 10px lightblue;
+}
+
+.container {
+  text-align: center;
+}
+
+
+
+
+.container table {
+  margin: auto;
+  text-align: center;
+  border: 1px black;
+}

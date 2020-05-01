@@ -59,46 +59,49 @@ if (isset($_GET['cari'])) {
     </div>
   </div>
 
-  <div class="container">
-    <form action="" method="get">
-      <input type="text" name="keyword" size="40" placeholder="masukan keyword pencarian.." autocomplete="off" autofocus>
-      <button type="submit" name="cari" class="m-4 btn btn-info">cari!</button>
-    </form>
 
-    <?php if (empty($buku)) : ?>
-      <h1>Data tidak ditemukan!!!</h1>
-    <?php else : ?>
+  <section class="isi">
+    <div class="container">
+      <form action="" method="get">
+        <input type="text" name="keyword" size="40" placeholder="masukan keyword pencarian.." autocomplete="off" autofocus>
+        <button type="submit" name="cari" class="m-4 btn btn-info">cari!</button>
+      </form>
 
-      <table class=" tabeladmin" border="2">
-        <tr>
-          <th>#</th>
-          <th>Cover</th>
-          <th>Nama Buku</th>
-          <th>Pengarang</th>
-          <th>Penerbit</th>
-          <th>Harga</th>
-          <th>opsi</th>
-        </tr>
+      <?php if (empty($buku)) : ?>
+        <h1>Data tidak ditemukan!!!</h1>
+      <?php else : ?>
 
-        <?php $i = 1; ?>
-        <?php foreach ($buku as $bk) : ?>
+        <table class=" tabeladmin" border="2">
           <tr>
-            <td><?= $i; ?></td>
-            <td><img src="../assets/img/<?= $bk['Cover'] ?>"></td>
-            <td><?= $bk['NamaBuku']; ?></td>
-            <td><?= $bk['Pengarang']; ?></td>
-            <td><?= $bk['Penerbit']; ?></td>
-            <td><?= $bk['Harga']; ?></td>
-            <td>
-              <a href="ubah.php?Id=<?= $bk['Id'] ?>" class="btn btn-info">Ubah</a>
-              <a href="hapus.php?Id=<?= $bk['Id'] ?>" onclick="return confirm('Hapus Data?')" class="btn btn-danger">hapus</a>
-            </td>
+            <th>#</th>
+            <th>Cover</th>
+            <th>Nama Buku</th>
+            <th>Pengarang</th>
+            <th>Penerbit</th>
+            <th>Harga</th>
+            <th>opsi</th>
           </tr>
-          <?php $i++; ?>
-        <?php endforeach; ?>
-      <?php endif; ?>
-      </table>
-  </div>
+
+          <?php $i = 1; ?>
+          <?php foreach ($buku as $bk) : ?>
+            <tr>
+              <td><?= $i; ?></td>
+              <td><img src="../assets/img/<?= $bk['Cover'] ?>"></td>
+              <td><?= $bk['NamaBuku']; ?></td>
+              <td><?= $bk['Pengarang']; ?></td>
+              <td><?= $bk['Penerbit']; ?></td>
+              <td><?= $bk['Harga']; ?></td>
+              <td>
+                <a href="ubah.php?Id=<?= $bk['Id'] ?>" class="btn btn-info">Ubah</a>
+                <a href="hapus.php?Id=<?= $bk['Id'] ?>" onclick="return confirm('Hapus Data?')" class="btn btn-danger">hapus</a>
+              </td>
+            </tr>
+            <?php $i++; ?>
+          <?php endforeach; ?>
+        <?php endif; ?>
+        </table>
+    </div>
+  </section>
 </body>
 <footer class=" text-dark bg-light footer">
   <div class="container">

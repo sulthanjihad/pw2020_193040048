@@ -24,55 +24,75 @@ if (isset($_POST['tambah'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tambah Data</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-  <h3>Form Tambah Data Buku</h3>
-  <form action="" method="post">
-    <table>
-      <tr>
-        <td>
-          <label for="Cover">Cover :</label><br>
-          <input type="text" name="Cover" id="Cover" required><br><br>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="NamaBuku">NamaBuku :</label><br>
-          <input type="text" name="NamaBuku" id="NamaBuku" required><br><br>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="Pengarang">Pengarang :</label><br>
-          <input type="text" name="Pengarang" id="Pengarang" required><br><br>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="Penerbit">Penerbit :</label><br>
-          <input type="text" name="Penerbit" id="Penerbit" required><br><br>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="Harga">Harga :</label>
-          <select name="Harga" id="Harga" required>
-            <option value="">---------pilih harga-------</option>
-            <option value="Rp.90.000">Rp90.000</option>
-            <option value="Rp.100.000">Rp.100.000</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button type="submit" name="tambah">Tambah Data!</button>
-          <button type="submit">
-            <a href="index.php" style="text-decoration: none; color:black;"></a>kembali</button>
-        </td>
-      </tr>
-    </table>
-  </form>
+  <section class="tambahsisi">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ea officiis porro consequatur illo fugit c
+    </p>
+  </section>
+  <section class="isi">
+    <div class="container">
+      <h1>Form Tambah Data Buku</h1>
+      <form action="" method="post">
+        <table class="tambah">
+          <tr>
+            <td>
+              <label for="Cover">Cover :</label><br>
+            </td>
+            <td><input type="text" name="Cover" id="Cover" required></td>
+          </tr>
+          <tr>
+            <td>
+              <label for="NamaBuku">NamaBuku :</label><br>
+            </td>
+            <td>
+              <input type="text" name="NamaBuku" id="NamaBuku" required><br><br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="Pengarang">Pengarang :</label><br>
+            </td>
+            <td>
+              <input type="text" name="Pengarang" id="Pengarang" required><br><br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="Penerbit">Penerbit :</label><br>
+            </td>
+            <td>
+              <input type="text" name="Penerbit" id="Penerbit" required><br><br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="Harga">Harga :</label>
+            </td>
+            <td>
+              <select name="Harga" id="Harga" required>
+                <option value="">---------pilih harga-------</option>
+                <option value="Rp.90.000">Rp90.000</option>
+                <option value="Rp.100.000">Rp.100.000</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="submit" name="tambah" class="btn btn-info">Tambah Data!</button>
+            </td>
+            <td>
+              <button type="submit" class="btn btn-info">
+                <a href="../index.php" style="text-decoration: none; color:black;"></a>kembali</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </section>
 </body>
 
 </html>
