@@ -23,14 +23,32 @@ $buku = query("SELECT * FROM buku WHERE Id = $Id")[0];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="style.css">
 
     <title>Document</title>
 </head>
 
 <body>
     <div class="container">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../assets/img/<?= $buku["Cover"]; ?>" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <p><?= $buku["NamaBuku"]; ?></p>
+                </h5>
+                <p class="card-text">sinopsis</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><?= $buku["Pengarang"]; ?></li>
+                <li class="list-group-item"><?= $buku["Penerbit"]; ?></li>
+                <li class="list-group-item"><?= $buku["Harga"]; ?></li>
+            </ul>
+            <div class="card-body">
+                <a href="../index.php" class="card-link">Kembali</a>
+            </div>
+        </div>
+
         <div class="gambar">
             <img src="../assets/img/<?= $buku["Cover"]; ?>" alt="">
         </div>

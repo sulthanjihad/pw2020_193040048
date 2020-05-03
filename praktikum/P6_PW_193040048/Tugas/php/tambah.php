@@ -24,20 +24,17 @@ if (isset($_POST['tambah'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tambah Data</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
-  <section class="tambahsisi">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ea officiis porro consequatur illo fugit c
-    </p>
-  </section>
-  <section class="isi">
+
+  <section class="tambah">
     <div class="container">
       <h1>Form Tambah Data Buku</h1>
       <form action="" method="post">
-        <table class="tambah">
+        <table border="1" style="background-image: url(../assets/img/bgtbl1.jpg)">
           <tr>
             <td>
               <label for="Cover">Cover :</label><br>

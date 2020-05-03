@@ -21,67 +21,85 @@ if (isset($_GET['cari'])) {
 <head>
     <meta charset="UTF-8">
     <title>Buku</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 
 </head>
 
-<body data-spy="scroll" data-target="#navbar-example">
+<body data-spy="scroll">
+    <!-- awal navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="index.php">Surga Buku</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- NAVBAR -->
-
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        <div class="container">
-            <a class="navbar-brand" href="#">Surga Buku</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active" href="#home">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item tombol btn btn-primary" href="php/admin.php">Admin</a>
-                </div>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="php/admin.php">Admin </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">-</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Postponed launching a book Sorry.. </a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method="get">
+                <input name="keyword" class="form-control mr-sm-2" type="search" size="40" placeholder="Cari Buku Dengan Cara Memasukan Kata!" autofocus autocomplete="off">
+                <button class="btn btn-outline-success my-2 my-sm-0" name="cari" id="cari" type="submit">Search</button>
+            </form>
         </div>
     </nav>
-    <!-- AKHIR NAVBAR -->
+    <!-- akhir navbar -->
 
-    <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid " id="home">
+    <!-- awal jumbotron -->
+    <div class="jumbotron jumbotron-fluid bg-info" style="text-align: center">
         <div class="container">
-            <h1 class="display-4"> Mari kita <span>Membaca </span><br> untuk memperkaya <span> isi kepala. </span> </h1>
-            <a href="#cari" class="btn btn-primary tombol">Yu Baca!!</a>
+            <h1 class="display-4 text-light">Surga Buku~</h1>
+            <p class="lead text-light">Pentingnya membaca untuk memperkaya isi kepala. </p>
         </div>
     </div>
+    <!-- akhir jumbotron -->
+
+
 
     <section class="isi">
         <div class="container">
-            <form action="" method="get">
-                <input type="text" name="keyword" size="40" placeholder="masukan keyword pencarian.." autocomplete="off" autofocus>
-                <button type="submit" class="btn btn-info" name="cari" id="cari">cari!</button>
-
-                <!--jika tidak ada hasil pencarian -->
-                <?php if (empty($buku)) : ?>
-                    <h1>Data tidak ditemukan!!</h1>
-                <?php endif; ?>
-                <!-- pemberentian pengkondisian-->
-
-            </form>
+            <h1>Daftar Buku-Buku di website kami.</h1>
             <br><br>
+            <br>
+            <!--jika tidak ada hasil pencarian -->
+            <?php if (empty($buku)) : ?>
+                <h1>Data Tidak Ditemukan!!</h1>
+            <?php endif; ?>
+            <!-- pemberentian pengkondisian-->
 
+
+            <br><br>
             <?php foreach ($buku as $bk) : ?>
-
-                <div class="NamaBuku alert alert-primary mt-4 " role="alert">
-                    Data Buku yang ada di website kami <a href="php/detail.php?Id=<?= $bk['Id'] ?>" class="alert-link"><?= "$bk[Id]"; ?>.<?= "$bk[NamaBuku]"; ?></a> Lihat lebih detail.
+                <div class="cardisi">
+                    <div class="card bg-transparent text-white m-5 border-0">
+                        <img src="assets/img/<?= $bk["Cover"]; ?>" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Buku Yang Tersedia.</h5>
+                            <p class="card-text"><a href="php/detail.php?Id=<?= $bk['Id'] ?>" class="alert-link"><?= "$bk[Id]"; ?>.<?= "$bk[NamaBuku]"; ?></a></p>
+                            <p class="card-text">silahkan tekan untuk lihat lebih detail.</p>
+                        </div>
+                    </div>
                 </div>
 
+
             <?php endforeach; ?>
-            <a href="php/admin.php" class="btn btn-primary tombol">Admin</a>
-            <a href="index.php" class="btn btn-primary tombol">Kembali</a>
+            <a href="php/admin.php" class="btn btn-primary tombol m-5">Admin</a>
+            <a href="index.php" class="btn btn-primary tombol m-5">Kembali</a>
         </div>
     </section>
 </body>
-<footer class=" text-dark bg-light footer">
+
+<footer class=" text-light bg-dark footer">
     <div class="container">
         <div class="row pt-3">
             <div class="col text-center">
@@ -89,7 +107,6 @@ if (isset($_GET['cari'])) {
             </div>
         </div>
     </div>
-
 </footer>
 
 </html>
