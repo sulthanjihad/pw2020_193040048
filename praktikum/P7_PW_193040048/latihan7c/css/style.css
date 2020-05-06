@@ -1,0 +1,46 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-behavior: smooth;
+  background-size: cover;
+  background: linear-gradient(20deg, burlywood, lightgoldenrodyellow, burlywood);
+  background-repeat: no-repeat;
+}
+
+
+.tambah h1 {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.tambah .container {
+  text-align: center;
+}
+
+.isi .container {
+  text-align: center;
+  margin: auto;
+}
+
+
+.container .cardisi img {
+  height: 400px;
+  width: 400px;
+  margin: auto;
+}
+
+.tambah .container table {
+  margin: auto;
+}
+
+.tambah .container .table img {
+  height: 60px;
+  width: 60px;
+}
+
+.gambar1 img {
+  width: 200px;
+  height: 200px;
+}

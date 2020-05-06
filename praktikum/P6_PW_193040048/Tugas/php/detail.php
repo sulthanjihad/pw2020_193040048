@@ -24,45 +24,52 @@ $buku = query("SELECT * FROM buku WHERE Id = $Id")[0];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="../css/detail.css">
 
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/img/<?= $buku["Cover"]; ?>" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">
-                    <p><?= $buku["NamaBuku"]; ?></p>
-                </h5>
-                <p class="card-text">sinopsis</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><?= $buku["Pengarang"]; ?></li>
-                <li class="list-group-item"><?= $buku["Penerbit"]; ?></li>
-                <li class="list-group-item"><?= $buku["Harga"]; ?></li>
+
+    <!-- awal navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="index.php">Surga Buku</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
             </ul>
-            <div class="card-body">
-                <a href="../index.php" class="card-link">Kembali</a>
+            <span class="navbar-text mr-4">
+                You Seen A Books <?= $buku["NamaBuku"]; ?>.
+            </span>
+            <a href="../index.php"> <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Kembali</button></a>
+        </div>
+    </nav>
+    <!-- akhir navbar -->
+
+
+    <section class="detail">
+        <div class="container">
+            <div class="card border-danger mx-auto m-4 p-2" style="width: 300px; ">
+                <img class="card-img-top" src="../assets/img/<?= $buku["Cover"]; ?>" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <p><?= $buku["NamaBuku"]; ?></p>
+                    </h5>
+                    <p class="card-text">sinopsis</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><?= $buku["Pengarang"]; ?></li>
+                    <li class="list-group-item"><?= $buku["Penerbit"]; ?></li>
+                    <li class="list-group-item"><?= $buku["Harga"]; ?></li>
+                </ul>
             </div>
-        </div>
 
-        <div class="gambar">
-            <img src="../assets/img/<?= $buku["Cover"]; ?>" alt="">
         </div>
-
-        <div class="keterangan">
-            <p><?= $buku["Id"]; ?></p>
-            <p><?= $buku["NamaBuku"]; ?></p>
-            <p><?= $buku["Pengarang"]; ?></p>
-            <p><?= $buku["Penerbit"]; ?></p>
-            <p><?= $buku["Harga"]; ?></p>
-        </div>
-
-        <button class="tombol-kembali"><a href="../index.php">kembali</a></button>
-    </div>
+    </section>
 </body>
 
 </html>
