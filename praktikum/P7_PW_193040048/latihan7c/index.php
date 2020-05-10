@@ -27,7 +27,7 @@ if (isset($_GET['cari'])) {
         .jumbotron {
             background-image: url("assets/img/bg1.jpg");
             background-size: cover;
-            height: 1900px;
+            height: 1200px;
             width: auto;
         }
     </style>
