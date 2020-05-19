@@ -34,15 +34,26 @@ if (isset($_POST['ubah'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tambah Data</title>
+  <link rel="icon" type="image/png" href="../assets/img/images.png">
+  <title>Ubah Data!</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <style>
+    body {
+      background: linear-gradient(20deg, burlywood, lightgoldenrodyellow, burlywood);
+    }
+
+    span {
+      text-decoration-line: underline;
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- awal navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-warning sticky-top">
-    <a class="navbar-brand" href="index.php">Surga Buku</a>
+    <a class="navbar-brand" href="index.php"><img src="../assets/img/images1.png" width="50px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -59,10 +70,11 @@ if (isset($_POST['ubah'])) {
           <a class="nav-link disabled" href="#">Postponed launching a book Sorry.. </a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" method="get">
-        <input name="keyword" class="form-control mr-sm-2" type="search" size="40" placeholder="Cari Buku Dengan Cara Memasukan Kata!" autofocus autocomplete="off">
-        <button class="btn btn-outline-success my-2 my-sm-0" name="cari" id="cari" type="submit">Search</button>
-      </form>
+      <h5>Anda Sedang Mengubah Data Buku
+        <span class="navbar-text mr-4 text-Dark">
+          <?= $bk["NamaBuku"]; ?>.
+        </span>
+      </h5>
     </div>
   </nav>
   <!-- akhir navbar -->
@@ -70,11 +82,12 @@ if (isset($_POST['ubah'])) {
   <section class="ubah">
     <div class="container">
       <h3 class="text-center mt-5">Form Ubah Data Buku</h3>
-      <form method="post">
-        <div class="form-group m-5 mx-auto">
+      <form method="post" enctype="multipart/form-data">
+        <div class="form-group ">
           <input type="hidden" name="Id" id="Id" value="<?= $bk['Id']; ?>">
-          <label for="Cover">Cover :</label>
-          <input type="text" name="Cover" id="Cover" value="<?= $bk['Cover']; ?> " class="form-control">
+          <input type="hidden" name="Cover_lama" value="<?= $bk['Cover']; ?> ">
+          <label for="Cover">Cover :</label><input type="file" name="Cover" id="Cover" autocomplete="off" class="gambardefault form-control-file" onchange="previewImage()">
+          <img src="../assets/img/<?= $bk['Cover']; ?>" alt="" width="250" class="img-preview">
           <small id="Cover" class="form-text text-muted">ukuran Cover buku 400x200.</small>
         </div>
 
@@ -105,6 +118,7 @@ if (isset($_POST['ubah'])) {
 
     </div>
   </section>
+  <script src="../js/script.js"></script>
 </body>
 
 <footer class=" text-light bg-dark footer mt-5">

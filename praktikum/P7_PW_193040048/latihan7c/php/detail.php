@@ -24,16 +24,17 @@ $buku = query("SELECT * FROM buku WHERE Id = $Id")[0];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/detail.css">
+    <!-- <link rel="stylesheet" href="../css/detail.css"> -->
 
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="../assets/img/images.png">
+    <title>Books Store</title>
 </head>
 
 <body>
 
     <!-- awal navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <a class="navbar-brand" href="index.php">Surga Buku</a>
+        <a class="navbar-brand" href="index.php"> <img src="../assets/img/images1.png" width="50px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,8 +43,8 @@ $buku = query("SELECT * FROM buku WHERE Id = $Id")[0];
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
             </ul>
-            <span class="navbar-text mr-4">
-                You Seen A Books <?= $buku["NamaBuku"]; ?>.
+            <span class="navbar-text mr-4 text-info">
+                You Seen A Book <?= $buku["NamaBuku"]; ?>.
             </span>
             <a href="../index.php"> <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Kembali</button></a>
         </div>
@@ -59,7 +60,6 @@ $buku = query("SELECT * FROM buku WHERE Id = $Id")[0];
                     <h5 class="card-title">
                         <p><?= $buku["NamaBuku"]; ?></p>
                     </h5>
-                    <p class="card-text">sinopsis</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><?= $buku["Pengarang"]; ?></li>
@@ -71,5 +71,15 @@ $buku = query("SELECT * FROM buku WHERE Id = $Id")[0];
         </div>
     </section>
 </body>
+
+<footer class=" text-light bg-dark footer">
+    <div class="container">
+        <div class="row pt-3">
+            <div class="col text-center">
+                <p>Surga Buku 2020.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </html>

@@ -21,15 +21,73 @@ function query($sql)
     return $rows;
 }
 
+function upload()
+{
+    $nama_file = $_FILES['Cover']['name'];
+    $tipe_file = $_FILES['Cover']['type'];
+    $ukuran_file = $_FILES['Cover']['size'];
+    $error = $_FILES['Cover']['error'];
+    $tmp_file = $_FILES['Cover']['tmp_name'];
+
+    //ketika tidak ada gambar
+    if ($error == 4) {
+        // echo "<script>
+        //     alert('pilih gambar');
+        // </script>";
+
+        return 'nophoto.jpg';
+    }
+    // cek ekstensi file
+    $daftar_gambar = ['jpg', 'jpeg', 'png'];
+    $ekstensi_file = explode('.', $nama_file);
+    $ekstensi_file =  strtolower(end($ekstensi_file));
+    if (!in_array($ekstensi_file, $daftar_gambar)) {
+        echo "<script>
+        alert('bukan gambar ini');
+    </script>";
+        return false;
+    }
+
+    if ($tipe_file != 'image/jpeg' &&  $tipe_file != 'image/png') {
+        echo "<script>
+        alert('bukan gambar');
+    </script>";
+        return false;
+    }
+
+    // cek ukuran file
+    if ($ukuran_file > 5000000) {
+        echo "<script>
+        alert('terlalu besar');
+    </script>";
+        return false;
+    }
+
+    // siap upload
+    $nama_file_baru = uniqid();
+    $nama_file_baru .= ".";
+    $nama_file_baru .= $ekstensi_file;
+    move_uploaded_file($tmp_file, '../assets/img/' . $nama_file_baru);
+
+    return $nama_file_baru;
+}
+
+
 function tambah($data)
 {
     $conn = koneksi();
 
-    $Cover = htmlspecialchars($data['Cover']);
+    // $Cover = htmlspecialchars($data['Cover']);
+
     $NamaBuku = htmlspecialchars($data['NamaBuku']);
     $Pengarang = htmlspecialchars($data['Pengarang']);
     $Penerbit = htmlspecialchars($data['Penerbit']);
     $Harga = htmlspecialchars($data['Harga']);
+
+    $Cover = upload();
+    if (!$Cover) {
+        return false;
+    }
 
     $query = "INSERT INTO buku
                         VALUES
@@ -44,7 +102,13 @@ function hapus($Id)
 {
     $conn = koneksi();
 
-    mysqli_query($conn, "DELETE FROM buku WHERE Id = $Id");
+    //menghapus gambar
+    $buku = query("SELECT * FROM buku WHERE Id = $Id");
+    if ($buku['Cover'] != 'nophoto.jpg') {
+        unlink('../assets/img/' . $buku['Cover']);
+    }
+
+    mysqli_query($conn, "DELETE FROM buku WHERE Id = $Id") or die(mysqli_error($conn));
 
 
     return mysqli_affected_rows($conn);
@@ -55,11 +119,21 @@ function ubah($data)
 {
     $conn = koneksi();
     $Id =   htmlspecialchars($data['Id']);
-    $Cover = htmlspecialchars($data['Cover']);
+    $Cover_lama = htmlspecialchars($data['Cover_lama']);
     $NamaBuku = htmlspecialchars($data['NamaBuku']);
     $Pengarang = htmlspecialchars($data['Pengarang']);
     $Penerbit = htmlspecialchars($data['Penerbit']);
     $Harga = htmlspecialchars($data['Harga']);
+
+
+    $Cover = upload();
+    if (!$Cover) {
+        return false;
+    }
+
+    if ($Cover == 'nophoto.jpg') {
+        $Cover = $Cover_lama;
+    }
 
     $query = "UPDATE buku
             set
@@ -101,4 +175,28 @@ function registrasi($data)
     mysqli_query($conn, $query_tambah);
 
     return mysqli_affected_rows($conn);
+}
+
+function cari($keyword)
+{
+    $conn = koneksi();
+
+    $query = "SELECT * FROM buku
+                WHERE 
+                Cover LIKE '%$keyword%' OR 
+                NamaBuku LIKE '%$keyword%' OR
+                Pengarang LIKE '%$keyword%' OR
+                Penerbit LIKE '%$keyword%' OR
+                Harga LIKE '%$keyword%'
+
+                
+                ";
+    $result = mysqli_query($conn, $query);
+
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+
+    return $rows;
 }
