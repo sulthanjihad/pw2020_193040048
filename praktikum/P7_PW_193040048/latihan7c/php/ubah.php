@@ -34,17 +34,26 @@ if (isset($_POST['ubah'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="../assets/img/images.png">
+  <link rel="icon" type="image/png" href="../assets/img/images1.png">
   <title>Ubah Data!</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
   <style>
     body {
-      background: linear-gradient(20deg, burlywood, lightgoldenrodyellow, burlywood);
+      background: linear-gradient(20deg, purple, orange, purple);
     }
 
     span {
       text-decoration-line: underline;
+    }
+
+    .container {
+      border-radius: 5%;
+
+    }
+
+    .ubah img {
+      border-radius: 5%;
     }
   </style>
 </head>
@@ -80,14 +89,14 @@ if (isset($_POST['ubah'])) {
   <!-- akhir navbar -->
 
   <section class="ubah">
-    <div class="container">
+    <div class="container" style="background-image: url(../assets/img/bg1.jpg)">
       <h3 class="text-center mt-5">Form Ubah Data Buku</h3>
       <form method="post" enctype="multipart/form-data">
-        <div class="form-group ">
+        <div class="form-group ubah">
           <input type="hidden" name="Id" id="Id" value="<?= $bk['Id']; ?>">
           <input type="hidden" name="Cover_lama" value="<?= $bk['Cover']; ?> ">
           <label for="Cover">Cover :</label><input type="file" name="Cover" id="Cover" autocomplete="off" class="gambardefault form-control-file" onchange="previewImage()">
-          <img src="../assets/img/<?= $bk['Cover']; ?>" alt="" width="250" class="img-preview">
+          <img src="../assets/img/<?= $bk['Cover']; ?>" alt="" width="250" class="img-preview mt-5">
           <small id="Cover" class="form-text text-muted">ukuran Cover buku 400x200.</small>
         </div>
 
@@ -111,9 +120,10 @@ if (isset($_POST['ubah'])) {
           <input type="text" name="Harga" id="Harga" required value="<?= $bk['Harga']; ?> " class="form-control">
           <small id="Cover" class="form-text text-muted">Diawali RP | Contoh "RP90.000.</small>
         </div>
-
-        <button type="submit" name="ubah" class="btn btn-primary mr-4">Ubah Data!</button>
-        <a href="admin.php"><button type="submit" class="btn btn-primary">kembali</button></a>
+        <div class="tombolubah text-center">
+          <button type="submit" name="ubah" class="btn btn-primary mr-4">Ubah Data!</button>
+          <a href="admin.php"><button type="submit" class="btn btn-primary">kembali</button></a>
+        </div>
       </form>
 
     </div>
