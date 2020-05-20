@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    -export DEPLOYPATH=/home3/pw19048_pw_193040048/public_html/
+    -export DEPLOYPATH=/home3/pw193040048/public_html/
     -/bin/cp -r * $DEPLOYPATH
